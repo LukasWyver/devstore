@@ -1,15 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
 import { ptBR } from '@clerk/localizations'
-import { neobrutalism } from '@clerk/themes'
+import { ClerkProvider } from '@clerk/nextjs'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: 'Devstore',
-  description: 'A sua loja <dev/>',
 }
 
 export default function RootLayout({
@@ -18,14 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider
-      localization={ptBR}
-      appearance={{
-        baseTheme: neobrutalism,
-      }}
-    >
-      <html lang="pt-BR">
-        <body className={inter.className}>{children}</body>
+    <ClerkProvider localization={ptBR}>
+      <html lang="pt-BR" className={inter.variable}>
+        <body>{children}</body>
       </html>
     </ClerkProvider>
   )
