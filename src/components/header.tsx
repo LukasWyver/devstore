@@ -3,7 +3,15 @@ import { Cart } from './cart'
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
 import { SearchInput } from './search-input'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  ClerkLoading,
+  ClerkLoaded,
+} from '@clerk/nextjs'
+import { Skeleton } from './ui/skeleton'
 
 export function Header() {
   return (
@@ -23,7 +31,13 @@ export function Header() {
 
         <SignedIn>
           <span className="text-sm">Minha Conta</span>
-          <UserButton afterSignOutUrl="/" />
+
+          <ClerkLoading>
+            <Skeleton className="h-8 w-8 rounded-full bg-zinc-900" />
+          </ClerkLoading>
+          <ClerkLoaded>
+            <UserButton afterSignOutUrl="/" />
+          </ClerkLoaded>
         </SignedIn>
 
         <SignedOut>

@@ -73,6 +73,10 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      blur: {
+        '4xl': '88px',
+        full: '97px',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
