@@ -11,16 +11,16 @@ interface ProductCartProps {
 export function ProductCart({ slug, image, title, price }: ProductCartProps) {
   return (
     <Link
-      href={`/product/${slug}`}
+      href={slug}
       className="group relative col-span-3 row-span-3 flex items-end justify-center overflow-hidden rounded-lg bg-zinc-900 first:col-span-6 first:row-span-6"
     >
       <Image
+        alt=""
         src={image}
-        className="transition-transform duration-500 group-hover:scale-105"
         width={920}
         height={920}
         quality={100}
-        alt=""
+        className="transition-transform duration-500 group-hover:scale-105"
       />
 
       <div className="absolute bottom-10 right-10 flex h-12 max-w-[280px] items-center gap-2 rounded-full border-2 border-zinc-500 bg-black/80 p-1 pl-5 backdrop-blur-sm group-first:bottom-28 group-first:right-28">
