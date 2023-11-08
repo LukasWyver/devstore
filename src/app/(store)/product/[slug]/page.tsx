@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Toggle } from '@/components/ui/toggle'
+import { ChevronLeftIcon } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProductPage() {
   return (
@@ -15,8 +17,15 @@ export default function ProductPage() {
           className=""
         />
       </div>
+
       <div className="flex flex-col justify-center p-12">
-        <h1 className="text-3xl font-bold leading-tight">
+        <Button variant="secondary" size="icon">
+          <Link href="/">
+            <ChevronLeftIcon />
+          </Link>
+        </Button>
+
+        <h1 className="mt-8 text-3xl font-bold leading-tight">
           Moletom Never Stop Learning
         </h1>
 
