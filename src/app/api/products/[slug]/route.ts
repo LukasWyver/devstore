@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import data from '../data.json'
 import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function GET(
   _request: Request,
@@ -18,8 +19,9 @@ export async function GET(
   const product = data.products.find((product) => product.slug === slug)
 
   if (!product) {
-    return Response.json({ message: 'Product not found.' }, { status: 400 })
+    return new Response('Product not found.', { status: 400 })
   }
 
-  return Response.json(product)
+  // return Response.json(product)
+  return NextResponse.json(product)
 }
