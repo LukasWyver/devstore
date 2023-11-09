@@ -21,7 +21,7 @@ export default function ProductPage() {
       <div className="flex flex-col justify-center p-12">
         <Button variant="secondary" size="icon">
           <Link href="/">
-            <ChevronLeftIcon />
+            <ChevronLeftIcon className="h-5 w-5 stroke-zinc-500" />
           </Link>
         </Button>
 
