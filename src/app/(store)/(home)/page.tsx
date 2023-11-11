@@ -8,6 +8,18 @@ async function getFeaturedProducts(): Promise<Product[]> {
     // next: { revalidate: 60 * 60 }, // 1 hour
     cache: 'no-store',
   })
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch featured products: ${response.statusText}`)
+  }
+
+  const contentType = response.headers.get('content-type')
+
+  if (!contentType || !contentType.includes('application/json')) {
+    // Tratar a resposta de acordo com o tipo de conteúdo esperado
+    throw new Error('Response is not in JSON format')
+  }
+
   const products = await response.json()
 
   return products
